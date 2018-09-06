@@ -1,6 +1,6 @@
 <template>
     <header>
-        <h1>{{ title }}</h1>
+        <h1>{{ newTitle }}</h1>
     </header>
 </template>
 
@@ -9,8 +9,21 @@
         name: "Header",
         props: {
             title: String
+        },
+        data() {
+            return {
+                name: 'Ryan'
+            };
+        },
+        computed: {
+            newTitle: function () {
+               if (this.title === 'hello') {
+                   return this.title;
+               }
+               return this.name;
+            }
         }
-    }
+    };
 </script>
 
 <style scoped>
