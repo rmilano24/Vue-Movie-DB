@@ -1,24 +1,17 @@
 <template>
-  <div id="app">
+  <div id="app" v-if="status === 'Ready'">
     <Header :title="title" />
     <img alt="Vue logo" src="./assets/logo.png">
      <h1>{{ hello }}</h1> 
-     <ul>
-       <li v-for="(item, index) in list">
-        {{ index + 1 }} {{ item }}
-       </li>
-       <li v-for="person in people">
-         {{ person.name }}
-       </li>
-       <li v-for="(value, key) in profile">
-        {{key}}: {{ value }}
-       </li>
-     </ul>
     <HelloWorld
-     :key="person.id"
-     v-for="person in people"
      msg="Welcome to Your Vue.js App"
-     />
+      />
+  </div>
+  <div v-else-if="status === 'Loading'">
+    Loading
+  </div>
+  <div v-else>
+    Error
   </div>
 </template>
 
@@ -32,34 +25,18 @@ export default {
     return {
       hello: "Hello World",
       title: "Vue Movie DB",
-      list: ['Penguin' , 'Turtle', 'Panda'],
-      people: [{
-        id: "1",
-        name: "Ryan"
-      }, {
-        id: "2",
-        name: "Courtney"
-      }
-      ],
-      profile: {
-        name: "Ryan",
-        Age: 34,
-        job: "dev"
-      }
+      isTrue: true,
+      status: 'Ready'
     };
   },
   components: {
     HelloWorld,
     Header
   }
-}
+};
 </script>
 
 <style scoped>
-
-h1 {
-  color: red;
-}
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
