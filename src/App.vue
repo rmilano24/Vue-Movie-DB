@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Header :title="title" />
-    <router-view />
+    
+      <router-view />
+
    </div> 
 </template>
 
@@ -29,7 +31,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #fff;
-  
 }
+
 
 </style>
