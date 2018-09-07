@@ -1,21 +1,32 @@
 <template>
-  <div id="app">
+  <div id="app" v-if="status === 'Ready'">
     <Header :title="title" />
-    <router-view />
+    <MoviesList />
    </div> 
+  <div v-else-if="status === 'Loading'">
+    Loading
+  </div>
+  <div v-else>
+    Error
+  </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
+import MoviesList from './components/MoviesList.vue'
 
 export default {
   name: 'app',
   data() {
     return {
-      title: "Vue Movie DB"
+      hello: "Hello World",
+      title: "Vue Movie DB",
+      isTrue: true,
+      status: 'Ready'
     };
   },
   components: {
+    MoviesList,
     Header
   }
 };
