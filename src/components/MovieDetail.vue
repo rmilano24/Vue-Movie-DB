@@ -18,8 +18,24 @@
                 movie: {}
             }
         },
+        beforeCreate() {
+            console.log('before create')
+        },
         created: function() {
+            console.log('created')
             this.fetchData();
+        },
+        beforeMount() {
+            console.log('before mount')
+        },
+        mounted() {
+            console.log('mounted')
+        },
+        beforeUpdate() {
+            console.log('before update')
+        },
+        update() {
+            console.log('updated')
         },
         computed: {
             styles() {
